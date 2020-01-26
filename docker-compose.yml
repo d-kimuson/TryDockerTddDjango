@@ -10,3 +10,11 @@ services:
     volumes:
       - ./django_app:/django_app
       - /django_app/.venv
+    links:
+      - selenium
+  selenium:
+    image: selenium/standalone-chrome-debug
+    container_name: selenium
+    ports:
+      - 4444:4444
+      - 5900:5900
