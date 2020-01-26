@@ -23,12 +23,18 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = '5a)pv*3ov&vr6%q4dxu_xox!n&xta#kdr!0ir+*!sb&@8q4zm^'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = os.getenv("IS_PRODUCT") == "no"
 
 ALLOWED_HOSTS = [
     "localhost",
     "127.0.0.1"
 ]
+
+if DEBUG:
+    import socket
+    ALLOWED_HOSTS.append(
+        socket.gethostbyname(socket.gethostname())
+    )
 
 
 # Application definition

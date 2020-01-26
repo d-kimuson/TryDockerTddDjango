@@ -10,10 +10,8 @@ services:
     volumes:
       - ./django_app:/django_app
       - /django_app/.venv
-    links:
-      - selenium
     environment:
-      PIPENV_VENV_IN_PROJECT: 1
+      IS_PRODUCT: 'no'
   selenium:
     image: selenium/standalone-chrome-debug
     container_name: selenium
