@@ -12,6 +12,8 @@ services:
       - /django_app/.venv
     links:
       - selenium
+    environment:
+      PIPENV_VENV_IN_PROJECT: 1
   selenium:
     image: selenium/standalone-chrome-debug
     container_name: selenium
